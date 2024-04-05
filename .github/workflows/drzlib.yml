@@ -70,4 +70,4 @@ jobs:
              patch ./include/dragonruby.h.inc dragonruby.h.inc.patch
       - name: compile
         run: |
-          make
+          CC=gcc make
