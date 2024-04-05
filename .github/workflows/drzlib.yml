@@ -1,0 +1,27 @@
+name: compile lib
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  compile-linux:
+    name: compile linux
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: kfischer-okarin/download-dragonruby@v1
+        with:
+          license_tier: pro
+      - name: apply patches
+        run: |
+             patch ./include/dragonruby.h dragonruby.h.patch
+             patch ./include/dragonruby.h.inc dragonruby.h.inc.patch
+      - name: compile
+        run: |
+          make
+          
