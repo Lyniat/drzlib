@@ -14,6 +14,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - uses: kfischer-okarin/download-dragonruby@v1
         with:
           license_tier: pro
@@ -25,3 +27,47 @@ jobs:
         run: |
           make
           
+  compile-macos:
+    name: compile macos
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: kfischer-okarin/download-dragonruby@v1
+        with:
+          license_tier: pro
+      - name: apply patches
+        run: |
+             patch ./include/dragonruby.h dragonruby.h.patch
+             patch ./include/dragonruby.h.inc dragonruby.h.inc.patch
+      - name: compile
+        run: |
+          make
+          
+  compile-win:
+    name: compile windows
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: kfischer-okarin/download-dragonruby@v1
+        with:
+          license_tier: pro
+      - name: install mingw
+        run: |
+          choco install mingw
+      - name: apply patches
+        run: |
+             patch ./include/dragonruby.h dragonruby.h.patch
+             patch ./include/dragonruby.h.inc dragonruby.h.inc.patch
+      - name: compile
+        run: |
+          make
