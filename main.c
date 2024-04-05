@@ -15,7 +15,7 @@ static inline uint64_t host_to_big(uint64_t a) {
 #if defined(__linux__) || defined(__APPLE__)
 #define DL(NAME) NAME
 #else
-#define DL(NAME) drb->NAME
+#define DL(NAME) drb->##NAME
 #endif
 
 struct drb_api_t *drb;
