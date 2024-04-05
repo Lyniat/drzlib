@@ -1,8 +1,9 @@
 CompileFlags:
   Add:
     - -Iinclude
-    - -isystem
-    - include
+    - -Iz/include
+    - -isystem include
+    - -isystem z/include
     - -Wall
     - -xc
     - -std=c2x
