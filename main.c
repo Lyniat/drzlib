@@ -1,5 +1,4 @@
 #include <dragonruby.h>
-#include <features.h>
 #include <mruby.h>
 #include <stdint.h>
 #include <zlib.h>
