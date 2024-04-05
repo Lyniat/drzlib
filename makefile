@@ -19,7 +19,7 @@ dr-zlib$(sl_ext): zlib
 
 .PHONY: zlib clean
 zlib:
-	(cd zlib; ./configure --static -w --prefix "$(CURDIR)/z")
+	(cd zlib; CFLAGS="-fpic" ./configure --static -w --prefix "$(CURDIR)/z")
 	$(MAKE) -C zlib install
 
 clean:
