@@ -2,7 +2,6 @@ uname := $(shell uname)
 
 ifneq (,$(findstring NT,$(uname)))
 	sl_ext := .dll
-	extra_flags := --target=x86_64-w64-mingw
 endif
 ifeq ($(uname),Linux)
 	sl_ext := .so
