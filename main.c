@@ -12,7 +12,7 @@ static inline uint64_t host_to_big(uint64_t a) {
   }
 }
 
-#if 0 && defined(__linux__) || defined(__APPLE__)
+#if defined(__linux__) || defined(__APPLE__)
 #define DL
 #else
 #define DL drb->
