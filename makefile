@@ -15,7 +15,7 @@ ifeq (,$(sl_ext))
 endif
 
 dr-zlib$(sl_ext): zlib
-	$(CC) -O3 -flto -fpic -shared -isystem include -isystem z/include -L z/lib -l z $(extra_flags) -o dr-zlib$(sl_ext) main.c 
+	$(CC) -O3 -flto -fpic -shared -isystem include -isystem z/include -L z/lib $(extra_flags) -o dr-zlib$(sl_ext) main.c -l z
 
 .PHONY: zlib clean
 zlib:
