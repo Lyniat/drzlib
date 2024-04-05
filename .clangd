@@ -1,0 +1,9 @@
+CompileFlags:
+  Add:
+    - -Iinclude
+    - -isystem
+    - include
+    - -Wall
+    - -xc
+    - -std=c2x
+    - -DMRB_BOXING_WORD
