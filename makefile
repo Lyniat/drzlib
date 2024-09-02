@@ -24,7 +24,7 @@ endif
 dr-zlib$(sl_ext): zlib
 	$(CC) -O3 -flto -fpic -shared -isystem include -isystem z/include -L z/lib $(extra_flags) $(darwin_arch) -o dr-zlib-$(arch_name)$(sl_ext) main.c -l z
 
-.PHONY: zlib clean lipo macos
+.PHONY: zlib clean lipo
 zlib:
 	(cd zlib; CFLAGS="-fpic $(darwin_arch)" ./configure --static -w --prefix "$(CURDIR)/z")
 	$(MAKE) -C zlib install
