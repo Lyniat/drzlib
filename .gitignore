@@ -1,2 +1,5 @@
 .idea
 include
+
+# macOS
+.DS_Store
